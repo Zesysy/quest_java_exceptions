@@ -16,11 +16,20 @@ public class OddSum {
                 System.out.print(" " + v);
             System.out.println();
         }
-        for (int i = 0; i < args.length; i++) {
-            listInt.add(Integer.parseInt(args[i]));
+        try {
+            // Here we can have an exception if we give as input something other than an integer
+            for (int i = 0; i < args.length; i++) {
+                listInt.add(Integer.parseInt(args[i]));
+            }
+
+            res = sum(listInt);
+
+            // Here we catch the exception
+        } catch (NumberFormatException e) {
+            // testException() expected -1 if
+            res = -1;
         }
 
-        res = sum(listInt);
         if (test) {
             return res;
         }
